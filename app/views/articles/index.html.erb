@@ -1,0 +1,43 @@
+<h1> All Articles</h1>
+
+<%= link_to "New Article", new_article_path, class: "button" %>
+<ul>
+<% @articles.each_with_index do |article, index| %>
+  <li class="list-group-item"><h2><%= link_to article.title, article_path(article.id) %></h2></li>
+  <% unless (index + 1) == @articles.length %>
+    <hr />
+  <% end %>
+<% end %>
+</ul>
+
+
+<style>
+  * {
+    font-family: Arial, Helvetica, sans-serif;
+      color: #333;
+  }
+        .list-group-item {
+      
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .list-group-item a {
+
+            text-decoration: none;
+            padding: .5rem;
+            border-radius: .25rem;
+            color: black;
+        }
+        .list-group-item a:hover {
+            background-color: #202020;
+            color: white;
+
+        }
+hr {
+  width: 30%;
+  margin-left: 0;
+  border: .5px #202020 solid;
+}
+</style>
+
