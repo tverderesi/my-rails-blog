@@ -14,36 +14,82 @@
  *= require_self
  */
 
-.button {
-  background-color: #4caf50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 2rem;
+/* Reset CSS styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: 600;
+  color: #333;
 }
 
 h1 {
-  font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
   font-size: 2.5rem;
-  color: #333;
   border-bottom: #333 1px solid;
   padding: 0rem 1rem 0.5rem;
 }
+.w-full {
+  width: 100%;
+}
 
-.container {
-  width: 80%;
-  margin: 0 auto;
+.button {
+  background-color: #202020;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  font-weight: 500;
 }
 
 .button:hover {
-  background-color: #45a049;
+  background-color: hsl(0, 0%, 30%);
+}
+
+ul {
+  width: 100%;
+  margin: 0;
+  padding-left: 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style-type: none;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 1rem;
+  gap: 2rem;
+}
+li {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  border-bottom: 1px #202020 solid;
+  min-height: 3rem;
+}
+li > a {
+  text-decoration: none;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  color: #333;
+}
+li > a:hover {
+  background-color: #202020;
+  color: white;
+  transition: background-color 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+hr {
+  width: 100%;
+  margin-left: 0;
+  border: 0.5px #202020 solid;
 }
