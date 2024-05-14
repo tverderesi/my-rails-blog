@@ -1,90 +1,46 @@
-<h1> New Article </h1>
-
-<%= form_with scope: :article, url: articles_path, html: { class: "flex-col gap-2" }, local: true do |form| %>
-
+<div class="container flex-col">
+  <h1> New Article </h1>
   <div class="flex-col">
-
-    <%= form.label :title, class: "label" %><br>
-
-    <%= form.text_field :title, class: "input" %>
-
+    <% if @article.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+        <ul>
+          <% @article.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
   </div>
+  <%= form_with scope: :article, url: articles_path, html: { class: "flex-col gap-2" }, local: true do |form| %>
 
-  <div class="flex-col"> 
+    <div class="flex-col">
 
-    <%= form.label :text, class: "label" %><br>
+      <%= form.label :title, class: "label" %><br>
 
-    <%= form.text_area :text, class: "input textarea" %>
+      <%= form.text_field :title, class: "input" %>
 
-  </div>
+    </div>
 
-  
-    <div class='flex-container'>
-        <%= form.submit class: "submit-button" %>
-        <%= link_to "Back", articles_path, class: "back-button" %>
+    <div class="flex-col">
+
+      <%= form.label :text, class: "label" %><br>
+
+      <%= form.text_area :text, class: "input textarea" %>
+
     </div>
 
 
-<% end %>
+    <div class='flex-container'>
+      <%= form.submit class: "button" %>
+      <%= link_to "Back", articles_path, class: "secondary-button" %>
+    </div>
 
+
+  <% end %>
+</div>
 
 
 <style>
-  .flex-container {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
 
-  .flex-col {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;
-
-  }
-
-
-  .submit-button {
-    background-color: #202020;
-    color: white;
-    padding: .5rem;
-    border-radius: .25rem;
-    border: none;
-  }
-  .submit-button:hover {
-    background-color: #333;
-  }
-
-  .back-button {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #606060;
-    color: white;
-    padding: .5rem;
-    border-radius: .25rem;
-    border: none;
-    text-decoration: none;
-    font-size: .75rem;
-  }
-  .back-button:hover {
-    background-color: #808080;
-  }
-
-  .label {
-    font-size: 1.25rem;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #202020;
-    font-weight: 600;
-  }
-
-  .input {
-    padding: .5rem;
-    border-radius: .25rem;
-    border: 1px solid #202020;
-  }
-.gap-2 {
-    gap: 1rem;}
-  .textarea {
-    height: 10rem;
-    width: 20rem;}
 </style>

@@ -1,11 +1,15 @@
 <div class="container">
   <h1 class="w-full"> All Articles</h1>
   <%= link_to "New Article", new_article_path, class: "button" %>
-    <ul class="list">
-      <% @articles.each do |article| %>
-        <li>
-            <%= link_to article.title, article_path(article.id) %>
-        </li>
-        <% end %>
-    </ul>
+  <ul id="article-list">
+    <% @articles.each do |article| %>
+      <li>
+        <%= link_to article.title, article_path(article.id) %>
+        <div>
+          <%= link_to inline_svg('MaterialSymbolsEditOutline.svg', title: 'Edit Article', class: 'icon'), edit_article_path(article),
+                      class: "square-btn" %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
 </div>

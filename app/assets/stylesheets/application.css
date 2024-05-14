@@ -16,80 +16,215 @@
 
 /* Reset CSS styles */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
 }
 
 h1 {
-  font-weight: 700;
-  font-size: 2.5rem;
-  border-bottom: #333 1px solid;
-  padding: 0rem 1rem 0.5rem;
+    font-weight: 700;
+    font-size: 2.5rem;
+    border-bottom: #333 1px solid;
+    padding: 0 1rem 0.5rem;
+    width: 100%
 }
+
 .w-full {
-  width: 100%;
+    width: 100%;
 }
 
 .button {
-  background-color: #202020;
-  color: white;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  border: none;
-  text-decoration: none;
-  transition: background-color 0.3s;
-  font-weight: 500;
+    background-color: #202020;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #202020;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    font-weight: 500;
+    font-size: 1rem;
 }
 
-.button:hover {
-  background-color: hsl(0, 0%, 30%);
+
+.secondary-button {
+    background-color: #606060;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    font-weight: 500;
+    font-size: 1rem;
+    border: 1px solid #606060;
 }
 
-ul {
-  width: 100%;
-  margin: 0;
-  padding-left: 0;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  list-style-type: none;
+.button:hover, .secondary-button:hover {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #333;
 }
+
+ul#article-list {
+    width: 100%;
+    margin: 0;
+    padding-left: 0;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    list-style-type: none;
+}
+
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
-  width: 100vw;
-  min-height: 100vh;
-  padding: 1rem;
-  gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    width: 100vw;
+    min-height: 100vh;
+    padding: 1rem;
+    gap: 2rem;
 }
-li {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem;
-  border-bottom: 1px #202020 solid;
-  min-height: 3rem;
+
+ul#article-list > li {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    border-bottom: 1px #202020 solid;
+    min-height: 3rem;
 }
-li > a {
-  text-decoration: none;
-  padding: 0.5rem;
-  border-radius: 0.25rem;
-  color: #333;
+
+ul#article-list > li:last-of-type {
+    border-bottom: none;
 }
-li > a:hover {
-  background-color: #202020;
-  color: white;
-  transition: background-color 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+ul#article-list > li > a {
+    text-decoration: none;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    color: #333;
 }
-hr {
-  width: 100%;
-  margin-left: 0;
-  border: 0.5px #202020 solid;
+
+ul#article-list > li > a:hover {
+    background-color: #202020;
+    color: white;
+    transition: background-color 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+.flex-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+
+}
+
+
+.label {
+    font-size: 1.25rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #202020;
+    font-weight: 600;
+}
+
+.input {
+    padding: .5rem;
+    border-radius: .25rem;
+    border: 1px solid #202020;
+}
+
+.gap-2 {
+    gap: 1rem;
+}
+
+.textarea {
+    height: 10rem;
+    width: 20rem;
+}
+
+
+div#error_explanation > ul {
+    list-style-type: none;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: rgba(211, 0, 0, 0.84);
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+div#error_explanation > ul > li {
+    color: #F7F7F7;
+}
+
+.icon {
+    fill: #202020;
+}
+
+.square-btn:hover .icon path {
+    cursor: pointer;
+    fill: #F7F7F7 !important;
+}
+
+
+.square-btn {
+    color: #F7F7F7;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #202020;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    font-weight: 500;
+    font-size: 1rem;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.square-btn:hover {
+    background-color: #202020;
+    color: #333;
+    border: 1px solid #202020;
+}
+
+.article-container {
+    padding: 3rem;
+}
+
+.article-content {
+    padding: 3rem 1rem 1rem 1rem;
+}
+
+.absolute-button {
+    top: .5rem;
+    position: absolute;
+
+    right: 1rem;
+}
+
+.relative {
+    position: relative;
+}
+
+.flex {
+    display: flex;
+}
+
+.gap-1 {
+    gap: 0.5rem;
 }
