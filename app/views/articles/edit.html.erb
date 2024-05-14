@@ -12,7 +12,7 @@
       </div>
     <% end %>
   </div>
-  <%= form_with scope: :article, url: articles_path, html: { class: "flex-col gap-2" }, local: true do |form| %>
+  <%= form_with(model: @article, html: { class: 'flex-col gap-2' }) do |form| %>
 
     <div class="flex-col">
 
