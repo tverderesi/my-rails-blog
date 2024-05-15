@@ -1,0 +1,31 @@
+<div class="flex-col relative">
+  <% if @article.errors.any? %>
+    <div id="error_explanation" class="mt-2 ml-2"
+    >
+      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+      <ul class="flex-col ml-2">
+        <% @article.errors.full_messages.each do |message| %>
+          <li class="text-destructive"><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
+<%= form_with model: @article, html: { class: "flex-col gap-2 ml-2" }, local: true do |form| %>
+  <div class="flex-col mt-2">
+    <%= form.label :title, class: "text-xl font-semibold " %>
+    <%= form.text_field :title, class: "input p-1 text-lg mt-1 rounded-lg border-none w-full" %>
+  </div>
+
+  <div class="flex-col mt-2">
+    <%= form.label :text, class: "text-xl font-semibold" %>
+    <%= form.text_area :text, class: "mt-1 rounded-lg rounded-br-0 border-none w-full p-1 text-lg min-h-20" %>
+  </div>
+
+
+  <div class='flex-container'>
+    <%= form.submit class: "mt-2 p-1 outline-none btn-ghost text-lg font-semibold transition-bg-color transition-300 ease-in-out" %>
+  </div>
+
+
+<% end %>

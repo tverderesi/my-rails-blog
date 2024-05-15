@@ -1,15 +1,8 @@
 <div class="article-container">
-
   <div class="flex-col relative">
-
-    <div class="absolute-button flex gap-1 pb-1.5">
-      <%= link_to inline_svg('MaterialSymbolsEditOutline.svg', title: 'Edit Article', class: 'icon'), edit_article_path(@article),
-                  class: "square-btn" %>
-      <%= link_to inline_svg('MaterialSymbolsArrowBack.svg', title: 'Back', class: 'icon'), articles_path,
-                  class: "square-btn" %>
-    </div>
-
-    <h1><%= @article.title %></h1>
+    <%= render 'top_buttons' %>
+    <h1 class="w-full pr-20"><%= @article.title %></h1>
     <p class="article-content"><%= @article.text %></p>
+    <%= render 'comment_section' %>
   </div>
 </div>

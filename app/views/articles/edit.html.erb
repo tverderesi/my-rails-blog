@@ -1,41 +1,8 @@
-<div class="container flex-col">
-  <h1> Edit Article </h1>
-  <div class="flex-col">
-    <% if @article.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
-        <ul>
-          <% @article.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
+<div class="p-4 flex-col w-full min-h-screen">
+  <div class="relative w-full">
+    <h1 class="w-full relative"> Edit Article </h1>
+    <%= link_to inline_svg('MaterialSymbolsArrowBack.svg', title: 'Back', class: 'icon'), articles_path,
+                class: "square-btn create-article" %>
+    <%= render 'form' %>
   </div>
-  <%= form_with(model: @article, html: { class: 'flex-col gap-2' }) do |form| %>
-
-    <div class="flex-col">
-
-      <%= form.label :title, class: "label" %><br>
-
-      <%= form.text_field :title, class: "input" %>
-
-    </div>
-
-    <div class="flex-col">
-
-      <%= form.label :text, class: "label" %><br>
-
-      <%= form.text_area :text, class: "input textarea" %>
-
-    </div>
-
-
-    <div class='flex-container'>
-      <%= form.submit class: "button" %>
-      <%= link_to "Back", articles_path, class: "secondary-button" %>
-    </div>
-
-
-  <% end %>
 </div>

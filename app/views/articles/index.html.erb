@@ -1,15 +1,31 @@
 <div class="container">
-  <h1 class="w-full"> All Articles</h1>
-  <%= link_to "New Article", new_article_path, class: "button" %>
+  <div class="relative w-full">
+    <h1 class="w-full"> All Articles</h1>
+    <%= link_to inline_svg('MaterialSymbolsAddRounded.svg', title: 'Add Article', class: 'icon'), new_article_path, class: "create-article square-btn" %>
+  </div>
   <ul id="article-list">
+
+    <% if @articles.empty? %>
+      <h2 class="w-full text-center"> No Articles Found.</h2>
+    <% end %>
+
     <% @articles.each do |article| %>
       <li>
         <%= link_to article.title, article_path(article.id) %>
-        <div>
+        <div class="flex gap-1 h-full items-center">
           <%= link_to inline_svg('MaterialSymbolsEditOutline.svg', title: 'Edit Article', class: 'icon'), edit_article_path(article),
                       class: "square-btn" %>
+          <%= link_to inline_svg('MaterialSymbolsDeleteForever.svg', title: 'Delete Article', class: 'icon'), article_path(article),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' }, class: 'square-btn destructive' %>
         </div>
       </li>
     <% end %>
   </ul>
 </div>
+
+<style>
+    .text-center {
+        text-align: center;
+    }
+</style>

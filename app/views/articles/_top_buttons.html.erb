@@ -1,0 +1,9 @@
+<div class="absolute-button flex gap-1 pb-1.5">
+  <%= link_to inline_svg('MaterialSymbolsEditOutline.svg', title: 'Edit Article', class: 'icon'), edit_article_path(@article),
+              class: "square-btn" %>
+  <%= link_to inline_svg('MaterialSymbolsDeleteForever.svg', title: 'Delete Article', class: 'icon'), article_path(@article),
+              method: :delete,
+              data: { confirm: 'Are you sure?' }, class: 'square-btn destructive' %>
+  <%= link_to inline_svg('MaterialSymbolsArrowBack.svg', title: 'Back', class: 'icon'), articles_path,
+              class: "square-btn" %>
+</div>
